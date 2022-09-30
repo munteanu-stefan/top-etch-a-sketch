@@ -1,0 +1,21 @@
+/* .canvas-item {
+    width: 10px;
+    height: 10px;
+} */
+
+.canvas-item:hover {
+  background-color: black;
+}
+
+.canvas-item-drawn {
+  background-color: black;
+}
+
+.canvas {
+  height: 960px;
+  width: 960px;
+  border: 5px solid black;
+  display: flex;
+  background-color: beige;
+  flex-wrap: wrap;
+}
