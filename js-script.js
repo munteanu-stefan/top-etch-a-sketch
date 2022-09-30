@@ -1,12 +1,13 @@
-let gridSize = Number(prompt("Enter desired canvas size (max 100)", 32));
+let gridSize = 32;
+// Number(prompt("Enter desired canvas size (max 100)", 32));
 const canvas = document.querySelector(".canvas");
 
 function checkInput(size) {
   if (isNaN(size) === false) {
     if (size > 100) {
       return 100;
-    } else if (size < 2) {
-      return 2;
+    } else if (size < 1) {
+      return 1;
     } else {
       return size;
     }
@@ -15,9 +16,8 @@ function checkInput(size) {
   }
 }
 
-// max of 100 and min of 2
-
 function createGrid(size) {
+  clearCanvas();
   let canvasSize = size * size;
   for (let index = 0; index < canvasSize; index++) {
     const canvasItem = document.createElement("div");
@@ -25,6 +25,7 @@ function createGrid(size) {
     canvasItem.style.cssText = `width: ${960 / size}px; height: ${960 / size}px;`;
     canvas.appendChild(canvasItem);
   }
+  makeDrawable();
 }
 
 function makeGridItemDrawable(item) {
@@ -40,5 +41,25 @@ function makeDrawable() {
   );
 }
 
+function clearCanvas() {
+  while (canvas.firstChild) {
+    canvas.removeChild(canvas.firstChild);
+  }
+}
+
+// slider
+const slider = document.getElementById("myRange");
+const output = document.getElementById("slider-output");
+output.textContent = slider.value;
+
+slider.oninput = function () {
+  output.textContent = this.value;
+  gridSize = this.value;
+};
+
+// button
+const button = (document.getElementById("new-canvas").onclick = function () {
+  createGrid(checkInput(gridSize));
+});
+
 createGrid(checkInput(gridSize));
-makeDrawable();
