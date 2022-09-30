@@ -1,7 +1,9 @@
-/* .canvas-item {
-    width: 10px;
-    height: 10px;
-} */
+body {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .canvas-item:hover {
   background-color: black;

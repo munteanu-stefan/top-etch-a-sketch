@@ -27,7 +27,7 @@ function makeGridItemDrawable(item) {
 function makeDrawable() {
   const gridItems = document.querySelectorAll(".canvas-item");
   gridItems.forEach((item) =>
-    item.addEventListener("mousedown", function () {
+    item.addEventListener("mouseover", function () {
       item.classList.add("canvas-item-drawn");
     })
   );
