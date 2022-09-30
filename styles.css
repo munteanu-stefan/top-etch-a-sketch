@@ -20,4 +20,5 @@ body {
   display: flex;
   background-color: beige;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
